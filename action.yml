@@ -1,4 +1,4 @@
-name: 'Setup SSH Action'
+name: 'Setup Github SSH Action'
 description: 'Sets up SSH credentials inside the GitHub environment'
 author: 'WayneChu'
 branding:

@@ -53,7 +53,7 @@ try {
   if (process.platform !== 'win32') exec(`chmod 600 ${sshAccess}`)
 
   let payload = context ? context.payload || {} : {}
-  let userName = 'LuisEnMarroquin', userEmail = 'mluis651@gmail.com'
+  let userName = 'WayneChu', userEmail = 'paosong91@gmail.com'
   userName = payload.pusher ? (payload.pusher.name || userName) : userName
   userEmail = payload.pusher ? (payload.pusher.email || userEmail) : userEmail
   if (userName !== '') exec(`git config --global user.name "${userName}"`)
