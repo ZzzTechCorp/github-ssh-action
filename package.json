@@ -1,6 +1,6 @@
 {
   "name": "ssh-action",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Sets up SSH credentials inside the GitHub environment",
   "license": "GPL-3.0",
   "author": "WayneChu <paosong91@gmail.com>",
