@@ -1,5 +1,5 @@
 import { getInput, setFailed } from '@actions/core'
-import { mkdirSync, writeFileSync } from 'fs'
+import { mkdirSync, writeFileSync, truncate } from 'fs'
 import { context } from '@actions/github'
 import { execSync } from 'child_process'
 import { homedir } from 'os'
@@ -12,11 +12,11 @@ try {
     console.log(result)
   }
 
-  let NAME = getInput('NAME')
+  let NAME = getInput('NAME') || "test"
   let PORT = getInput('PORT')
-  let USER = getInput('USER')
-  let ORIGIN = getInput('ORIGIN')
-  let SSHKEY = getInput('SSHKEY')
+  let USER = getInput('USER') || "root"
+  let ORIGIN = getInput('ORIGIN') || "localhost"
+  let SSHKEY = getInput('SSHKEY') || "123"
 
   let home = homedir()
   let sshFolder = join(home, '.ssh/')
@@ -46,7 +46,8 @@ try {
 
   mkdirSync(sshFolder)
   writeFileSync(sshConfig, accessText)
-  writeFileSync(sshAccess, SSHKEY)
+  exec(`echo "${SSHKEY}" > ${sshAccess}`)
+
   exec('cat ~/.ssh/config')
 
   if (process.platform !== 'win32') exec(`chmod 755 ${sshFolder}`)
@@ -60,6 +61,6 @@ try {
   if (userEmail !== '') exec(`git config --global user.email "${userEmail}"`)
 
   console.log({ payload })
-} catch (error) {
+} catch (error: any) {
   setFailed(error.message)
 }
