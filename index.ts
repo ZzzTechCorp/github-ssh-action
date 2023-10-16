@@ -1,5 +1,5 @@
 import { getInput, setFailed } from '@actions/core'
-import { mkdirSync, writeFileSync, truncate } from 'fs'
+import { mkdirSync } from 'fs'
 import { context } from '@actions/github'
 import { execSync } from 'child_process'
 import { homedir } from 'os'
@@ -12,11 +12,11 @@ try {
     console.log(result)
   }
 
-  let NAME = getInput('NAME') || "test"
+  let NAME = getInput('NAME')
   let PORT = getInput('PORT')
-  let USER = getInput('USER') || "root"
-  let ORIGIN = getInput('ORIGIN') || "localhost"
-  let SSHKEY = getInput('SSHKEY') || "123"
+  let USER = getInput('USER')
+  let ORIGIN = getInput('ORIGIN')
+  let SSHKEY = getInput('SSHKEY')
 
   let home = homedir()
   let sshFolder = join(home, '.ssh/')
@@ -47,7 +47,7 @@ try {
   mkdirSync(sshFolder)
 
   exec(`echo "${accessText}" > ${sshConfig}`)
-  exec(`echo "${SSHKEY}" > ${sshAccess}`)
+  exec(`echo -e "${SSHKEY}\n" > ${sshAccess}`)
 
   exec('cat ~/.ssh/config')
 
