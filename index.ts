@@ -45,7 +45,8 @@ try {
   }
 
   mkdirSync(sshFolder)
-  writeFileSync(sshConfig, accessText)
+
+  exec(`echo "${accessText}" > ${sshConfig}`)
   exec(`echo "${SSHKEY}" > ${sshAccess}`)
 
   exec('cat ~/.ssh/config')
