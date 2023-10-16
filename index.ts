@@ -47,7 +47,7 @@ try {
   mkdirSync(sshFolder)
 
   exec(`echo "${accessText}" > ${sshConfig}`)
-  exec(`echo -e "${SSHKEY}\n" > ${sshAccess}`)
+  exec(`echo "${SSHKEY}" > ${sshAccess}`)
 
   exec('cat ~/.ssh/config')
 
