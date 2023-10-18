@@ -21,7 +21,7 @@ try {
   let home = homedir()
   let sshFolder = join(home, '.ssh/')
   let sshConfig = join(home, '.ssh', 'config')
-  let sshAccess = join(home, '.ssh', 'access')
+  let sshAccess = "access"
 
   let portSSH = (PORT ? `  Port ${PORT}\n` : '')
   let userSSH = (USER ? `  User ${USER}\n` : '')
@@ -47,7 +47,7 @@ try {
   mkdirSync(sshFolder)
 
   exec(`echo "${accessText}" > ${sshConfig}`)
-  exec(`echo "${SSHKEY}" | tr -d '\r' > ${sshAccess}`)
+  exec(`echo "${SSHKEY}"  > ${sshAccess}`)
 
   exec('cat ~/.ssh/config')
 
