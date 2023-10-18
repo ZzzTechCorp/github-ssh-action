@@ -21,7 +21,7 @@ try {
   let home = homedir()
   let sshFolder = join(home, '.ssh/')
   let sshConfig = join(home, '.ssh', 'config')
-  let sshAccess = "access"
+  let sshAccess = "~/.ssh/access"
 
   let portSSH = (PORT ? `  Port ${PORT}\n` : '')
   let userSSH = (USER ? `  User ${USER}\n` : '')
