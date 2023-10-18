@@ -1,5 +1,5 @@
 import { getInput, setFailed } from '@actions/core'
-import { mkdirSync } from 'fs'
+import { mkdirSync, writeFileSync } from 'fs'
 import { context } from '@actions/github'
 import { execSync } from 'child_process'
 import { homedir } from 'os'
@@ -46,8 +46,8 @@ try {
 
   mkdirSync(sshFolder)
 
-  exec(`echo "${accessText}" > ${sshConfig}`)
-  exec(`echo "${SSHKEY}"  > ${sshAccess}`)
+  writeFileSync(sshConfig, accessText)
+  writeFileSync(sshAccess, SSHKEY)
 
   exec('cat ~/.ssh/config')
 
