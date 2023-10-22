@@ -3,7 +3,7 @@ name: Windows
 on:
   push:
     branches:
-    - main
+    - master
 
 jobs:
   test:
@@ -16,7 +16,7 @@ jobs:
     - uses: ZzzTechCorp/github-ssh-action@v1.0.0
       with:
         ORIGIN: ${{ secrets.HOST }}
-        SSHKEY: ${{ secrets.SSH_SERVER }}
+        SSHKEY: ${{ secrets.SSH_KEY }}
         NAME: production
         PORT: ${{ secrets.PORT }}
         USER: ${{ secrets.USER }}
