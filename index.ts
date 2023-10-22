@@ -12,20 +12,20 @@ try {
     console.log(result)
   }
 
-  let NAME = getInput('NAME')
-  let PORT = getInput('PORT')
-  let USER = getInput('USER')
-  let ORIGIN = getInput('ORIGIN')
-  let SSHKEY = getInput('SSHKEY')
+  const NAME = getInput('NAME')
+  const PORT = getInput('PORT')
+  const USER = getInput('USER')
+  const ORIGIN = getInput('ORIGIN')
+  let SSHKEY = getInput('SSHKEY') && getInput('SSHKEY').replace(/(\r\n|\n|\r)/gm, "");
 
-  let home = homedir()
-  let sshFolder = join(home, '.ssh/')
-  let sshConfig = join(home, '.ssh', 'config')
-  let sshAccess = "~/.ssh/access"
+  const home = homedir()
+  const sshFolder = join(home, '.ssh/')
+  const sshConfig = join(home, '.ssh', 'config')
+  const sshAccess = "~/.ssh/access"
 
-  let portSSH = (PORT ? `  Port ${PORT}\n` : '')
-  let userSSH = (USER ? `  User ${USER}\n` : '')
-  let accessText = `Host ${NAME || ORIGIN}\n  HostName ${ORIGIN}\n${userSSH}${portSSH}  IdentityFile ${sshAccess}\n  StrictHostKeyChecking no\n`
+  const portSSH = (PORT ? `  Port ${PORT}\n` : '')
+  const userSSH = (USER ? `  User ${USER}\n` : '')
+  const accessText = `Host ${NAME || ORIGIN}\n  HostName ${ORIGIN}\n${userSSH}${portSSH}  IdentityFile ${sshAccess}\n  StrictHostKeyChecking no\n`
 
   console.log({ home }, { sshFolder }, '\n')
   if (process.platform !== 'win32') {
@@ -54,7 +54,7 @@ try {
   if (process.platform !== 'win32') exec(`chmod 755 ${sshFolder}`)
   if (process.platform !== 'win32') exec(`chmod 600 ${sshAccess}`)
 
-  let payload = context ? context.payload || {} : {}
+  const payload = context ? context.payload || {} : {}
   let userName = 'WayneChu', userEmail = 'paosong91@gmail.com'
   userName = payload.pusher ? (payload.pusher.name || userName) : userName
   userEmail = payload.pusher ? (payload.pusher.email || userEmail) : userEmail
