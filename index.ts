@@ -17,7 +17,6 @@ try {
   const USER = getInput('USER')
   const ORIGIN = getInput('ORIGIN')
   const SSHKEY = getInput('SSHKEY')
-  console.log(SSHKEY.length)
 
   const home = homedir()
   const sshFolder = join(home, '.ssh/')
@@ -28,7 +27,7 @@ try {
   const userSSH = (USER ? `  User ${USER}\n` : '')
   const accessText = `Host ${NAME || ORIGIN}\n  HostName ${ORIGIN}\n${userSSH}${portSSH}  IdentityFile ${sshAccess}\n  StrictHostKeyChecking no\n`
 
-  console.log({ home }, { sshFolder }, '\n')
+  console.log({ home }, { sshFolder }, {SSHKEY: SSHKEY.length}, '\n')
   if (process.platform !== 'win32') {
     exec(`ps -p $$ || true`)
     exec(`rm -rf ${sshFolder} || true`)

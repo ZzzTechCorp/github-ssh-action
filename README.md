@@ -1,10 +1,9 @@
 # Setup SSH - GitHub Action
 
-[![Fail](https://github.com/ZzzTechCorp/github-ssh-action/actions/workflows/windows.yml/badge.svg)](https://github.com/ZzzTechCorp/github-ssh-action)
 [![Fail](https://github.com/ZzzTechCorp/github-ssh-action/actions/workflows/macos.yml/badge.svg)](https://github.com/ZzzTechCorp/github-ssh-action)
 [![Fail](https://github.com/ZzzTechCorp/github-ssh-action/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/ZzzTechCorp/github-ssh-action)
 
-This action sets up your SSH key on `Windows`, `macOS` and `Ubuntu` Environments
+This action sets up your SSH key on  `macOS` and `Ubuntu` Environments
 
 ## Example usage
 
