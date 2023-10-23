@@ -16,7 +16,8 @@ try {
   const PORT = getInput('PORT')
   const USER = getInput('USER')
   const ORIGIN = getInput('ORIGIN')
-  let SSHKEY = getInput('SSHKEY')
+  const SSHKEY = getInput('SSHKEY')
+  console.log(SSHKEY.length)
 
   const home = homedir()
   const sshFolder = join(home, '.ssh/')

@@ -1,6 +1,6 @@
 {
   "name": "github-ssh-action",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Sets up SSH credentials inside the GitHub environment",
   "main": "dist/index.js",
   "author": "WayneChu <paosong91@gmail.com>",
