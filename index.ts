@@ -27,7 +27,7 @@ try {
   const userSSH = (USER ? `  User ${USER}\n` : '')
   const accessText = `Host ${NAME || ORIGIN}\n  HostName ${ORIGIN}\n${userSSH}${portSSH}  IdentityFile ${sshAccess}\n  StrictHostKeyChecking no\n`
 
-  console.log({ home }, { sshFolder }, {SSHKEY: SSHKEY.length}, '\n')
+
   if (process.platform !== 'win32') {
     exec(`ps -p $$ || true`)
     exec(`rm -rf ${sshFolder} || true`)
@@ -50,6 +50,7 @@ try {
   writeFileSync(sshAccess, SSHKEY)
 
   exec('cat ~/.ssh/config')
+  exec('cat ~/.ssh/access')
 
   if (process.platform !== 'win32') exec(`chmod 755 ${sshFolder}`)
   if (process.platform !== 'win32') exec(`chmod 600 ${sshAccess}`)
@@ -61,7 +62,6 @@ try {
   if (userName !== '') exec(`git config --global user.name "${userName}"`)
   if (userEmail !== '') exec(`git config --global user.email "${userEmail}"`)
 
-  console.log({ payload })
 } catch (error: any) {
   setFailed(error.message)
 }
