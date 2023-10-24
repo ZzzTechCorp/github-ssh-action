@@ -33578,7 +33578,6 @@ try {
     (0, fs_1.writeFileSync)(sshConfig, accessText);
     exec("echo \"".concat(SSHKEY, "\" > ").concat(sshAccess));
     exec('cat ~/.ssh/config');
-    exec('cat ~/.ssh/access');
     if (process.platform !== 'win32')
         exec("chmod 755 ".concat(sshFolder));
     if (process.platform !== 'win32')

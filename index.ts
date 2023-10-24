@@ -50,7 +50,6 @@ try {
   exec(`echo "${SSHKEY}" > ${sshAccess}`)
 
   exec('cat ~/.ssh/config')
-  exec('cat ~/.ssh/access')
 
   if (process.platform !== 'win32') exec(`chmod 755 ${sshFolder}`)
   if (process.platform !== 'win32') exec(`chmod 600 ${sshAccess}`)
