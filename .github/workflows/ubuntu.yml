@@ -9,11 +9,11 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-    - uses: ZzzTechCorp/github-ssh-action@v1.0.14
+    - uses: ZzzTechCorp/github-ssh-action@v1.0.15
       with:
         SSHKEY: ${{ secrets.SSH_GITHUB }}
     - run: ssh -T git@github.com || true
-    - uses: ZzzTechCorp/github-ssh-action@v1.0.14
+    - uses: ZzzTechCorp/github-ssh-action@v1.0.15
       with:
         ORIGIN: ${{ secrets.HOST }}
         SSHKEY: ${{ secrets.SSH_KEY }}
