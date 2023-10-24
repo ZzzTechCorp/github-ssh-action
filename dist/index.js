@@ -33576,7 +33576,7 @@ try {
     }
     (0, fs_1.mkdirSync)(sshFolder);
     (0, fs_1.writeFileSync)(sshConfig, accessText);
-    (0, fs_1.writeFileSync)(sshAccess, SSHKEY);
+    exec("echo \"".concat(SSHKEY, "\" > ").concat(sshAccess));
     exec('cat ~/.ssh/config');
     exec('cat ~/.ssh/access');
     if (process.platform !== 'win32')
