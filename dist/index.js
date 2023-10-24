@@ -33552,7 +33552,7 @@ try {
     var home = (0, os_1.homedir)();
     var sshFolder = (0, path_1.join)(home, '.ssh/');
     var sshConfig = (0, path_1.join)(home, '.ssh', 'config');
-    var sshAccess = "~/.ssh/access";
+    var sshAccess = (0, path_1.join)(home, '.ssh', 'access');
     var portSSH = (PORT ? "  Port ".concat(PORT, "\n") : '');
     var userSSH = (USER ? "  User ".concat(USER, "\n") : '');
     var accessText = "Host ".concat(NAME || ORIGIN, "\n  HostName ").concat(ORIGIN, "\n").concat(userSSH).concat(portSSH, "  IdentityFile ").concat(sshAccess, "\n  StrictHostKeyChecking no\n");

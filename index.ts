@@ -21,7 +21,7 @@ try {
   const home = homedir()
   const sshFolder = join(home, '.ssh/')
   const sshConfig = join(home, '.ssh', 'config')
-  const sshAccess = "~/.ssh/access"
+  const sshAccess = join(home, '.ssh', 'access')
 
   const portSSH = (PORT ? `  Port ${PORT}\n` : '')
   const userSSH = (USER ? `  User ${USER}\n` : '')
